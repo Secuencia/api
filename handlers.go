@@ -17,18 +17,18 @@ func Index(w http.ResponseWriter, r *http.Request) {
 }
 
 func SequencesIndex(w http.ResponseWriter, r *http.Request) {
-  sequences := Location{
+  sequences := []Sequence{
     Sequence{
       Name: "Around Bogota",
       User: "mapus",
       Scenes: []Scene{
         Scene{
-          "Monserrate",
-          "One of the most traditional places to go.",
+          Name: "Monserrate",
+          Description: "One of the most traditional places to go.",
         },
         Scene{
-          "La Puerta Falsa",
-          "Try the Tamal, a traditional colombian dish.",
+          Name: "La Puerta Falsa",
+          Description: "Try the Tamal, a traditional colombian dish.",
         },
       },
     },
@@ -37,16 +37,16 @@ func SequencesIndex(w http.ResponseWriter, r *http.Request) {
       User: "Tulio",
       Scenes: []Scene{
         Scene{
-          "El Gordo ",
-          "Simulates a Brooklyn bistro. Amazing flavor.",
+          Name: "El Gordo ",
+          Description: "Simulates a Brooklyn bistro. Amazing flavor.",
         },
         Scene{
-          "El Corral",
-          "To Colombia, from Colombia. A colombian classic.",
+          Name: "El Corral",
+          Description: "To Colombia, from Colombia. A colombian classic.",
         },
         Scene{
-          "Home Burgers",
-          "Try the classic US burger here in Colombia.",
+          Name: "Home Burgers",
+          Description: "Try the classic US burger here in Colombia.",
         },
       },
     },
