@@ -32,4 +32,10 @@ var routes = Routes{
     "/sequences/{sequenceId}",
     GetSequence,
   },
+  Route{
+    "CreateSequence",
+    "POST",
+    "/sequences",
+    CreateSequence,
+  },
 }
