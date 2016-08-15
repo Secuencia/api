@@ -17,42 +17,12 @@ func Index(w http.ResponseWriter, r *http.Request) {
 }
 
 func SequencesIndex(w http.ResponseWriter, r *http.Request) {
-  sequences := []Sequence{
-    Sequence{
-      Name: "Around Bogota",
-      User: "mapus",
-      Scenes: []Scene{
-        Scene{
-          Name: "Monserrate",
-          Description: "One of the most traditional places to go.",
-        },
-        Scene{
-          Name: "La Puerta Falsa",
-          Description: "Try the Tamal, a traditional colombian dish.",
-        },
-      },
-    },
-    Sequence{
-      Name: "Top 10 burgers Bogota",
-      User: "Tulio",
-      Scenes: []Scene{
-        Scene{
-          Name: "El Gordo ",
-          Description: "Simulates a Brooklyn bistro. Amazing flavor.",
-        },
-        Scene{
-          Name: "El Corral",
-          Description: "To Colombia, from Colombia. A colombian classic.",
-        },
-        Scene{
-          Name: "Home Burgers",
-          Description: "Try the classic US burger here in Colombia.",
-        },
-      },
-    },
-  }
+  w.Header().Set("Content-Type","application/json;charset=UTF-8")
+  w.WriteHeader(http.StatusOK)
 
-  json.NewEncoder(w).Encode(sequences)
+  if err := json.NewEncoder(w).Encode(sequences); err != nil {
+    panic(err)
+  }
 }
 
 func GetSequence(w http.ResponseWriter, r *http.Request) {

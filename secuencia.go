@@ -5,6 +5,7 @@ import (
 )
 
 type Sequence struct {
+  Id int `json:"id"`
   Name string `json:"name"`
   User string `json:"user"`
   Country Place `json:"country"`
