@@ -13,11 +13,12 @@ import (
   "github.com/gorilla/mux"
 )
 
-
+// REVIEW: Description
 func Index(w http.ResponseWriter, r *http.Request) {
   fmt.Fprintf(w, "Hello, %q", html.EscapeString(r.URL.Path))
 }
 
+// REVIEW: Description
 func SequencesIndex(w http.ResponseWriter, r *http.Request) {
   w.Header().Set("Content-Type","application/json;charset=UTF-8")
   w.WriteHeader(http.StatusOK)
@@ -27,11 +28,13 @@ func SequencesIndex(w http.ResponseWriter, r *http.Request) {
   }
 }
 
+// REVIEW: Description
 func GetSequence(w http.ResponseWriter, r *http.Request) {
   vars := mux.Vars(r)
   fmt.Fprintln(w, "This is the sequence id: ",vars["sequenceId"])
 }
 
+// REVIEW: Description
 func CreateSequence(w http.ResponseWriter, r *http.Request) {
   var sequence Sequence
   body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
@@ -59,3 +62,16 @@ func CreateSequence(w http.ResponseWriter, r *http.Request) {
     panic(err)
   }
 }
+
+// Try the above function with the following json in Postman. Dont forget to configure the Content-Type headers.
+
+//{
+// "name":"Test of a new sequence",
+// "user":"chadepl",
+// "country":"Colombia",
+// "city":"Bogota",
+// "scenes":[
+//     {"name":"Scene 1","description":"Description 1."},
+//     {"name":"Scene 2","description":"Description 2. "}
+//     ]
+//}
